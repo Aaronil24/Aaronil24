@@ -307,6 +307,81 @@
   .text-link { color: var(--blue); text-decoration: none; font-weight: 500; }
   .text-link:hover { text-decoration: underline; }
 
+
+  /* Lab */
+  .lab-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+  .lab-tabs [role="tab"] { font: 500 .9375rem/1 var(--text-font); color: var(--text-2); background: transparent; border: 1px solid var(--line-strong); border-radius: 999px; min-height: 40px; padding: 0 16px; cursor: pointer; transition: color .2s, background-color .2s, border-color .2s; }
+  .lab-tabs [role="tab"]:hover { color: var(--text); border-color: var(--text-3); }
+  .lab-tabs [role="tab"][aria-selected="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .lab-panel { display: grid; gap: 22px; border: 1px solid var(--line); border-radius: 24px; background: var(--bg-raised); padding: 16px; grid-template-areas: "head" "stage" "side"; }
+  .lab-panel[hidden] { display: none; }
+  .lab-head { grid-area: head; padding: 8px 4px 0; display: grid; gap: 10px; }
+  .lab-head h3 { margin: 0; }
+  .lab-stage { grid-area: stage; }
+  .lab-side { grid-area: side; }
+  @media (min-width: 900px) {
+    .lab-panel { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); grid-template-rows: auto 1fr; grid-template-areas: "stage head" "stage side"; column-gap: 36px; row-gap: 18px; padding: 24px; }
+    .lab-head { padding-top: 4px; }
+  }
+  .lab-stage { min-width: 0; display: grid; gap: 12px; align-content: start; }
+  .lab-stage canvas { width: 100%; display: block; border-radius: 16px; background: var(--bg); border: 1px solid var(--line); }
+  .lab-side { min-width: 0; display: flex; flex-direction: column; gap: 18px; padding: 4px 4px 8px; }
+  .lab-side h3 { margin: 0; }
+  .lab-intro { color: var(--text-2); margin: 0; }
+  .ctl { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 6px 12px; }
+  .ctl label, .ctl-label { font-size: .9375rem; color: var(--text); }
+  .ctl output { font-size: .9375rem; color: var(--text-2); font-variant-numeric: tabular-nums; }
+  .ctl input[type="range"] { grid-column: 1 / -1; width: 100%; accent-color: var(--blue); height: 28px; margin: 0; cursor: pointer; }
+  .ctl input[type="range"]:disabled { opacity: .35; cursor: not-allowed; }
+  .ctl .seg, .ctl .chips, .ctl .lab-note { grid-column: 1 / -1; }
+  .seg { display: flex; flex-wrap: wrap; gap: 4px; padding: 3px; border: 1px solid var(--line-strong); border-radius: 14px; }
+  .seg button { flex: 1 1 auto; font: 500 .875rem/1.2 var(--text-font); color: var(--text-2); background: transparent; border: 0; border-radius: 10px; min-height: 36px; padding: 6px 10px; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips button { font: 500 .8125rem/1 var(--text-font); color: var(--text-2); background: transparent; border: 1px solid var(--line-strong); border-radius: 999px; min-height: 32px; padding: 0 12px; cursor: pointer; }
+  .chips button:hover { color: var(--text); }
+  .chips button[aria-pressed="true"] { color: var(--bg); background: var(--text); border-color: var(--text); }
+  .lab-note { color: var(--text-3); font-size: .875rem; margin: 2px 0 0; }
+  .lab-read { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; border-top: 1px solid var(--line); padding-top: 14px; }
+  .lab-read .wide { grid-column: 1 / -1; }
+  .lab-read dt { font-size: .8125rem; color: var(--text-3); }
+  .lab-read dd { margin: 0; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .lab-side .btn { align-self: flex-start; }
+  .lab-foot { color: var(--text-3); font-size: .8125rem; line-height: 1.5; margin: 0; }
+  .lab-repo { color: var(--text-2); font-size: .875rem; margin: 0; }
+  .lab-repo strong { color: var(--text); font-weight: 500; }
+  .lab-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .8125rem; color: var(--text-2); min-height: 1.2em; }
+  .lab-legend > span { display: inline-flex; align-items: center; gap: 8px; }
+  .sw { display: inline-block; width: 16px; height: 0; border-top: 2px solid var(--blue); vertical-align: middle; margin-right: 6px; }
+  .lab-legend .sw { margin-right: 0; }
+  .sw-prev { border-top: 2px dashed var(--text-3); }
+  .sw-band { height: 10px; border: 0; background: rgba(161,170,182,.28); border-radius: 2px; }
+  .sw-shade { height: 10px; border: 0; background: rgba(255,255,255,.07); border: 1px solid var(--line-strong); border-radius: 2px; }
+  .lab-chart { position: relative; min-width: 0; }
+  .lab-chart-svg { display: block; width: 100%; overflow: visible; }
+  .lc-grid { stroke: var(--line); stroke-width: 1; }
+  .lc-axis { stroke: var(--line-strong); stroke-width: 1; }
+  .lc-tick { fill: var(--text-3); font: 400 11.5px var(--text-font); font-variant-numeric: tabular-nums; }
+  .lc-note { fill: var(--text-2); font: 400 11.5px var(--text-font); }
+  .lc-line { fill: none; stroke: var(--blue); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .lc-prev { fill: none; stroke: var(--text-3); stroke-width: 1.75; stroke-dasharray: 5 4; }
+  .lc-band { fill: rgba(161,170,182,.22); stroke: none; }
+  .lc-shade { fill: rgba(255,255,255,.045); }
+  .lc-limit { stroke: var(--text-2); stroke-width: 1; stroke-dasharray: 2 4; }
+  .lc-cursor { stroke: var(--cyan); stroke-width: 1.25; }
+  .lc-hover { stroke: var(--text-2); stroke-width: 1; }
+  .lab-tip { position: absolute; top: 6px; pointer-events: none; background: #0B0E13; border: 1px solid var(--line-strong); border-radius: 10px; padding: 8px 10px; font-size: .8125rem; line-height: 1.5; color: var(--text-2); white-space: nowrap; z-index: 2; }
+  .lab-tip strong { color: var(--text); font-weight: 500; }
+  .lab-lanes { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .lab-lanes li { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 10px 2px; border-bottom: 1px solid var(--line); font-size: .9375rem; }
+  .lab-lanes .nm { font-weight: 500; }
+  .lab-lanes .st { grid-column: 1; color: var(--text-2); }
+  .lab-lanes .st.running { color: var(--text-3); }
+  .lab-lanes .rms { grid-column: 2; grid-row: 1 / span 2; align-self: center; color: var(--text-3); font-size: .875rem; font-variant-numeric: tabular-nums; }
+  .ico { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-size: 11px; font-weight: 600; margin-right: 8px; color: #0E1116; vertical-align: -3px; }
+  .ico.good { background: #0ca30c; }
+  .ico.bad { background: #d03b3b; color: #fff; }
+
   /* Expertise */
   .skills { display: grid; gap: 48px 72px; }
   @media (min-width: 900px) { .skills { grid-template-columns: 1fr 1fr; } }
@@ -356,6 +431,7 @@
     <nav class="nav-links" aria-label="Main">
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#lab">Lab</a>
       <a href="#expertise">Expertise</a>
       <a href="#contact">Contact</a>
       <a class="btn small" href="cv/Aaron-Dsouza-CV.pdf" download>Download CV</a>
@@ -366,6 +442,7 @@
 <nav class="sheet" id="sheet" aria-label="Menu">
   <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
+  <a href="#lab">Lab</a>
   <a href="#expertise">Expertise</a>
   <a href="#education">Education</a>
   <a href="#contact">Contact</a>
@@ -589,7 +666,7 @@
                   <div><dt>My contribution</dt><dd>Implemented PI/PID and computed-torque controllers for joint trajectory tracking, along with state feedback and Luenberger and disturbance observers.</dd></div>
                   <div><dt>Methodology</dt><dd>Computed-torque control uses the dynamic model to cancel the nonlinear terms, leaving linear error dynamics set by the gains:
                     <span class="eq">τ = M̂(q) (q̈<sub>d</sub> + K<sub>D</sub> ė + K<sub>P</sub> e) + Ĉ(q, q̇) q̇ + ĝ(q)</span>
-                    The arm at the top of this page runs this control law live, with a deliberately imperfect model so a small tracking error stays visible.</dd></div>
+                    The arm at the top of this page runs this control law live, with a deliberately imperfect model so a small tracking error stays visible. You can compare it with PID and adaptive control in the <a class="text-link" href="#lab">Lab</a>.</dd></div>
                   <div><dt>Tools</dt><dd>MATLAB, Simulink</dd></div>
                   <div><dt>Results</dt><dd>Controllers and observers were tested on the real lab setup, as part of the lab course graded 1.0.</dd></div>
                 </dl>
@@ -742,6 +819,7 @@
                   </dd></div>
                   <div><dt>Methodology</dt><dd>Nonlinear models simulated with RK4 at 200 Hz, controllers at 50 Hz. PPO written from scratch in NumPy, trained with and without domain randomization. Every controller faces the same scenarios with the same random seed, and the write-ups list what would make the comparison fairer.</dd></div>
                   <div><dt>Tools</dt><dd>Python (NumPy, SciPy, Matplotlib), reinforcement learning (PPO)</dd></div>
+                  <div><dt>Try it</dt><dd>The trained cart-pole policies run live in the <a class="text-link" href="#lab">Lab</a>, against LQR.</dd></div>
                 </dl>
               </div>
             </div>
@@ -786,6 +864,113 @@
         <li><span class="t">Sustainable propulsion concept for a historic ferry</span><span class="d">THWS engineering project, 2023. Technical and economic trade studies of propulsion architectures, leading to a sustainable system concept.</span></li>
         <li><span class="t">Project portfolio as a PDF</span><span class="d"><a class="text-link" href="cv/Aaron-Dsouza-Project-Portfolio.pdf">Download the six-page portfolio</a> with diagrams of the main projects.</span></li>
       </ul>
+    </div>
+  </section>
+
+  <section class="block" id="lab" aria-labelledby="lab-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="reveal" id="lab-title">Lab</h2>
+        <p class="reveal">Three small simulations built on my own work. They run in your browser: change the parameters and see what holds up.</p>
+      </div>
+      <div class="lab-tabs reveal" role="tablist" aria-label="Simulations">
+        <button type="button" role="tab" id="tab-arm" aria-controls="panel-arm" aria-selected="true">Controller tuning</button>
+        <button type="button" role="tab" id="tab-cartpole" aria-controls="panel-cartpole" aria-selected="false" tabindex="-1">Cart-pole stress test</button>
+        <button type="button" role="tab" id="tab-thermal" aria-controls="panel-thermal" aria-selected="false" tabindex="-1">Satellite thermal orbit</button>
+      </div>
+
+      <div class="lab-panel" role="tabpanel" id="panel-arm" aria-labelledby="tab-arm">
+        <div class="lab-head">
+          <h3>Make the arm follow the path</h3>
+          <p class="lab-intro">The arm repeats the same 8-second figure-eight. Change the controller, the gains, how wrong its model is and how heavy the payload is, then compare the tracking error with the previous setting.</p>
+        </div>
+        <div class="lab-stage">
+          <canvas aria-hidden="true"></canvas>
+          <div class="lab-legend" aria-live="off"></div>
+          <div class="lab-chart"></div>
+        </div>
+        <div class="lab-side">
+          <div class="ctl">
+            <span class="ctl-label" id="lbl-ctrl">Controller</span>
+            <div class="seg" data-seg="ctrl" role="group" aria-labelledby="lbl-ctrl">
+              <button type="button" data-v="pid">PID</button><button type="button" data-v="ct">Computed torque</button><button type="button" data-v="ad">Adaptive</button>
+            </div>
+            <p class="lab-note"></p>
+          </div>
+          <div class="ctl"><label for="arm-w">Bandwidth</label><output for="arm-w"></output><input type="range" id="arm-w" min="6" max="24" step="1" value="12"></div>
+          <div class="ctl"><label for="arm-err">Model error, masses underestimated</label><output for="arm-err"></output><input type="range" id="arm-err" min="0" max="40" step="5" value="15"></div>
+          <div class="ctl"><label for="arm-mp">Payload, unknown to the controller</label><output for="arm-mp"></output><input type="range" id="arm-mp" min="0" max="1.5" step="0.1" value="0.5"></div>
+          <dl class="lab-read">
+            <div><dt>RMS error</dt><dd id="arm-rms">–</dd></div>
+            <div><dt>Max error</dt><dd id="arm-max">–</dd></div>
+            <div><dt>Peak torque</dt><dd id="arm-tau">–</dd></div>
+            <div><dt>Payload estimate</dt><dd id="arm-est">–</dd></div>
+          </dl>
+          <button type="button" class="btn small" data-act="rerun">Restart run</button>
+          <p class="lab-foot">Same robot model as the hero animation, simulated at 1 kHz. Adaptive control here is the Slotine–Li law I worked with in the TUM lab.</p>
+        </div>
+      </div>
+
+      <div class="lab-panel" role="tabpanel" id="panel-cartpole" aria-labelledby="tab-cartpole" hidden data-src="lab/cartpole-policies.json">
+        <div class="lab-head">
+          <h3>Which controller survives?</h3>
+          <p class="lab-intro">Four controllers balance the same cart-pole from the same start: LQR and the three PPO policies trained in my <a class="text-link" href="https://github.com/Aaronil24/cartpole-lqr-vs-rl">cart-pole project</a>, running here with their real weights. Make the robot differ from the model.</p>
+        </div>
+        <div class="lab-stage">
+          <canvas aria-hidden="true"></canvas>
+          <ul class="lab-lanes" aria-live="polite">
+            <li data-lane="lqr"><span class="nm">LQR</span><span class="st"></span><span class="rms"></span></li>
+            <li data-lane="ppo_nominal"><span class="nm">PPO, nominal model</span><span class="st"></span><span class="rms"></span></li>
+            <li data-lane="ppo_randomized"><span class="nm">PPO, domain randomized</span><span class="st"></span><span class="rms"></span></li>
+            <li data-lane="ppo_randomized_smooth"><span class="nm">PPO, randomized + smooth</span><span class="st"></span><span class="rms"></span></li>
+          </ul>
+        </div>
+        <div class="lab-side">
+          <div class="ctl">
+            <span class="ctl-label" id="lbl-preset">Scenarios from the repository</span>
+            <div class="chips" role="group" aria-labelledby="lbl-preset">
+              <button type="button" data-preset="nominal">Nominal</button><button type="button" data-preset="heavy">3 kg pole</button><button type="button" data-preset="weak">Motor at 30 %</button><button type="button" data-preset="delay">80 ms delay</button><button type="button" data-preset="noise">Noisy sensors</button>
+            </div>
+          </div>
+          <div class="ctl"><label for="cp-m">Pole mass</label><output for="cp-m"></output><input type="range" id="cp-m" min="0" max="9" step="1" value="1"></div>
+          <div class="ctl"><label for="cp-motor">Motor strength</label><output for="cp-motor"></output><input type="range" id="cp-motor" min="30" max="120" step="10" value="100"></div>
+          <div class="ctl"><label for="cp-delay">Actuator delay</label><output for="cp-delay"></output><input type="range" id="cp-delay" min="0" max="100" step="20" value="0"></div>
+          <div class="ctl"><label for="cp-noise">Sensor noise σ</label><output for="cp-noise"></output><input type="range" id="cp-noise" min="0" max="0.3" step="0.05" value="0"></div>
+          <p class="lab-repo"></p>
+          <button type="button" class="btn small" data-act="rerun">Run again from a new start</button>
+          <p class="lab-foot">Blue arrows show the motor force. A policy can keep the pole up while chattering between full left and full right, which the RMS force reveals.</p>
+        </div>
+      </div>
+
+      <div class="lab-panel" role="tabpanel" id="panel-thermal" aria-labelledby="tab-thermal" hidden>
+        <div class="lab-head">
+          <h3>Keep the electronics in range</h3>
+          <p class="lab-intro">A small satellite in a 500 km orbit passes through sunlight and Earth's shadow every 94 minutes. Choose the surface finish, the attitude and the power the electronics dissipate, and keep them between −20 and +50 °C.</p>
+        </div>
+        <div class="lab-stage">
+          <canvas aria-hidden="true"></canvas>
+          <div class="lab-legend"><span><span class="sw sw-cur"></span>Electronics</span><span><span class="sw sw-band"></span>Panels, coldest to hottest</span><span><span class="sw sw-shade"></span>Eclipse</span></div>
+          <div class="lab-chart"></div>
+        </div>
+        <div class="lab-side">
+          <div class="ctl">
+            <span class="ctl-label" id="lbl-coat">Surface finish</span>
+            <div class="seg" data-seg="coat" role="group" aria-labelledby="lbl-coat"><button type="button" data-v="black">Black paint</button><button type="button" data-v="white">White paint</button><button type="button" data-v="bare">Bare metal</button></div>
+          </div>
+          <div class="ctl">
+            <span class="ctl-label" id="lbl-att">Attitude</span>
+            <div class="seg" data-seg="att" role="group" aria-labelledby="lbl-att"><button type="button" data-v="nadir">Facing Earth</button><button type="button" data-v="sun">Facing the Sun</button></div>
+          </div>
+          <div class="ctl"><label for="th-pw">Electronics power</label><output for="th-pw"></output><input type="range" id="th-pw" min="0" max="80" step="5" value="20"></div>
+          <dl class="lab-read">
+            <div><dt>Electronics</dt><dd id="th-elec">–</dd></div>
+            <div><dt>Panels</dt><dd id="th-panel">–</dd></div>
+            <div class="wide"><dt>Status</dt><dd id="th-status">–</dd></div>
+          </dl>
+          <p class="lab-foot">A lumped-parameter thermal network with four panels and one electronics node: solar, albedo and Earth infrared loads, radiation to space and internal conduction. It's a simplified teaching model, not Airbus software, in the spirit of the Systema and ESATAN models I ran there.</p>
+        </div>
+      </div>
+      <noscript><p class="lab-foot">The simulations need JavaScript.</p></noscript>
     </div>
   </section>
 
@@ -979,7 +1164,7 @@
         navLinks.forEach(function (a) { a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + en.target.id)); });
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    ['top', 'about', 'experience', 'projects', 'expertise', 'education', 'research', 'contact'].forEach(function (id) {
+    ['top', 'about', 'experience', 'projects', 'lab', 'expertise', 'education', 'research', 'contact'].forEach(function (id) {
       var el = document.getElementById(id); if (el) secObs.observe(el);
     });
 
@@ -1307,5 +1492,6 @@
   })();
 })();
 </script>
+<script src="lab/lab.js" defer></script>
 </body>
 </html>
