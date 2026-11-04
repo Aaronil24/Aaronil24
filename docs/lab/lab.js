@@ -167,7 +167,7 @@
     var NAMES = { pid: 'PID', ct: 'Computed torque', ad: 'Adaptive' };
     var NOTES = {
       pid: 'Independent PID per joint, with integral clamping. It uses no model, so the model-error slider has no effect.',
-      ct: 'Cancels the dynamics with the model. Excellent when the model is right; a wrong model or an unknown payload leaves a steady error.',
+      ct: 'Cancels the dynamics with the model. Excellent when the model is right; a wrong model or an unknown payload leaves a steady error. Try Adaptive with the same settings, or set both sliders to zero.',
       ad: 'Slotine–Li adaptive control: the same model-based structure, but the parameters are updated online with a Lyapunov-based law.'
     };
     var run, prev = null, lastDone = null;
