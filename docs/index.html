@@ -464,7 +464,7 @@
     <div class="wrap">
       <div class="sec-head">
         <h2 class="reveal" id="proj-title">Selected work</h2>
-        <p class="reveal">Robot control from the TUM lab, engineering software from Airbus and open-source simulations. Open a project for the challenge, method and outcome.</p>
+        <p class="reveal">Robot control from the TUM lab, engineering software from Airbus, and open-source work on classical and learned control. Open a project for the challenge, method and outcome.</p>
       </div>
 
       <ul class="projects">
@@ -648,6 +648,47 @@
           </div>
         </li>
 
+        <li class="proj reveal" id="classical-vs-learned">
+          <button class="proj-head" type="button" aria-expanded="false" aria-controls="pb-6">
+            <span class="proj-ctx">Personal projects on GitHub, Physical AI</span>
+            <span class="proj-title">Classical vs learned control</span>
+            <span class="proj-sum">LQR and cascaded PID against PPO reinforcement learning on a cart-pole and a quadrotor, tested on the ways a real robot differs from its model.</span>
+            <span class="proj-tools"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">LQR</span><span class="tag">PPO</span></span>
+            <span class="toggle" aria-hidden="true"></span>
+          </button>
+          <div class="proj-body" id="pb-6" role="region" aria-label="Classical vs learned control, details">
+            <div class="proj-inner">
+              <div class="proj-detail">
+                <figure class="figure">
+                  <svg viewBox="0 0 320 214" role="img" aria-label="Success rate on 500 simulated robots with parameters beyond the training ranges. Cart-pole: LQR 54 percent, PPO nominal 62 percent, PPO randomized 87 percent. Quadrotor: cascaded PID 30 percent, PPO nominal 44 percent, PPO randomized 62 percent.">
+                    <text class="d-t-ink" x="0" y="14">Cart-pole</text>
+                    <text class="d-t" x="0" y="38">LQR</text><rect x="104" y="27" width="100.4" height="15" rx="3" fill="#4A525E"/><text class="d-t" x="210" y="38">54 %</text>
+                    <text class="d-t" x="0" y="60">PPO nominal</text><rect x="104" y="49" width="115.3" height="15" rx="3" fill="#4F8CFF" fill-opacity=".55"/><text class="d-t" x="225" y="60">62 %</text>
+                    <text class="d-t" x="0" y="82">PPO randomized</text><rect x="104" y="71" width="161.4" height="15" rx="3" fill="#5DE0E6"/><text class="d-t-ink" x="271" y="82">87 %</text>
+                    <text class="d-t-ink" x="0" y="122">Quadrotor</text>
+                    <text class="d-t" x="0" y="146">Cascaded PID</text><rect x="104" y="135" width="56.2" height="15" rx="3" fill="#4A525E"/><text class="d-t" x="166" y="146">30 %</text>
+                    <text class="d-t" x="0" y="168">PPO nominal</text><rect x="104" y="157" width="82.2" height="15" rx="3" fill="#4F8CFF" fill-opacity=".55"/><text class="d-t" x="192" y="168">44 %</text>
+                    <text class="d-t" x="0" y="190">PPO randomized</text><rect x="104" y="179" width="114.9" height="15" rx="3" fill="#5DE0E6"/><text class="d-t-ink" x="225" y="190">62 %</text>
+                    <line class="d-ln" x1="104" y1="22" x2="104" y2="94"/><line class="d-ln" x1="104" y1="130" x2="104" y2="202"/>
+                  </svg>
+                  <figcaption>Success rate on 500 simulated robots whose parameters go beyond the training ranges. Data from the two repositories.</figcaption>
+                </figure>
+                <dl class="spec">
+                  <div><dt>Challenge</dt><dd>A controller designed on a model has to keep working on a robot that differs from it: heavier loads, weaker or slower motors, delay, noise and wind.</dd></div>
+                  <div><dt>Projects and results</dt><dd>
+                    <ul class="sub-list">
+                      <li><a href="https://github.com/Aaronil24/cartpole-lqr-vs-rl">Cart-pole: LQR vs reinforcement learning</a><span>All controllers balance the nominal model. On 500 unseen robots, PPO with domain randomization succeeded in 87 % of runs, LQR in 54 %. Under 60 ms delay, PPO chattered at full force until a penalty on jerky actions cut its RMS force from 8.0 N to 0.3 N, at the cost of robustness (67 %).</span></li>
+                      <li><a href="https://github.com/Aaronil24/quadrotor-rl-vs-pid">Quadrotor: PID vs reinforcement learning</a><span>On the nominal drone, the tuned PID hovered as accurately as the randomized policy (7.7 cm RMS in 1 N gusts) with 4–5× calmer rotor commands. On 500 unseen drones, the randomized policy completed 62 % of flights, PID 30 %.</span></li>
+                    </ul>
+                  </dd></div>
+                  <div><dt>Methodology</dt><dd>Nonlinear models simulated with RK4 at 200 Hz, controllers at 50 Hz. PPO written from scratch in NumPy, trained with and without domain randomization. Every controller faces the same scenarios with the same random seed, and the write-ups list what would make the comparison fairer.</dd></div>
+                  <div><dt>Tools</dt><dd>Python (NumPy, SciPy, Matplotlib), reinforcement learning (PPO)</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </li>
+
         <li class="proj reveal" id="open-source">
           <button class="proj-head" type="button" aria-expanded="false" aria-controls="pb-5">
             <span class="proj-ctx">Personal projects on GitHub</span>
@@ -699,6 +740,7 @@
             <li><span>Adaptive and impedance control</span><span class="where">TUM lab</span></li>
             <li><span>State feedback and observers</span><span class="where">TUM lab</span></li>
             <li><span>Lyapunov stability analysis</span><span class="where">TUM lab</span></li>
+            <li><span>LQR and reinforcement learning (PPO)</span><span class="where">GitHub</span></li>
           </ul>
         </div>
         <div class="skill-group reveal">
@@ -775,6 +817,7 @@
       </div>
       <ul class="interests">
         <li class="reveal"><span class="t">Robotics</span><span class="d">Modelling, identification and control of robot manipulators.</span></li>
+        <li class="reveal"><span class="t">Robot learning</span><span class="d">Learned and classical controllers that hold up when the real robot differs from the model.</span></li>
         <li class="reveal"><span class="t">Control systems</span><span class="d">Nonlinear and adaptive control with stability guarantees.</span></li>
         <li class="reveal"><span class="t">Automation</span><span class="d">Automated systems that are reliable enough for industrial use.</span></li>
         <li class="reveal"><span class="t">Model-based engineering</span><span class="d">Models as the single reference from design to validation.</span></li>
